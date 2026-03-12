@@ -478,24 +478,6 @@
                 return;
             }
 
-            const requiredFields = ['id-front', 'id-back', 'bank', 'photo', 'business'];
-            const missing = requiredFields.filter(field => {
-                const input = document.querySelector(`input[type="file"][data-field="${field}"]`);
-                return !input.files.length;
-            });
-
-            if (missing.length) {
-                const fieldNames = {
-                    'id-front': 'צילום תעודה מזהה – חזית',
-                    'id-back': 'צילום תעודה מזהה – גב',
-                    'bank': 'אישור ניהול חשבון בנק',
-                    'photo': 'תמונת פנים',
-                    'business': 'תעודת עוסק / התאגדות'
-                };
-                const names = missing.map(f => fieldNames[f]).join('\n• ');
-                alert('נא להעלות את המסמכים הבאים:\n• ' + names);
-                return;
-            }
 
             const submitBtn = document.querySelector('.submit-btn');
             submitBtn.disabled = true;
@@ -535,3 +517,4 @@
     </script>
 </body>
 </html>
+
